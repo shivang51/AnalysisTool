@@ -1,0 +1,8 @@
+-xc++
+
+-Ianalysistool/include
+-Ilibanalysistool/include
+-Ilibanalysistool/include/parsers
+
+-Iexternal/raylib/include
+-Iexternal/raylib/src

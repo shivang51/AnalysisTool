@@ -1,0 +1,12 @@
+* Plan
+** Gui
+   - Raylib
+   - ( ) Drag and Drop
+   - ( ) analysis based on predicted columns
+   - ( ) graphs
+
+** Backend
+   - Pytorch
+   - ( ) model to get columns which will give effective analysis
+   - ( ) data cleaning model
+   - ( ) get conclusions
