@@ -4,6 +4,7 @@
 int main() {
   LibAnalysisTool::Parsers::CSVParser parser;
   parser.open("test_files/test.csv");
+  parser.printHead();
   // SetConfigFlags(ConfigFlags::FLAG_WINDOW_RESIZABLE);
   // InitWindow(800, 600, "Data Analysis Tool");
   // SetTargetFPS(60);

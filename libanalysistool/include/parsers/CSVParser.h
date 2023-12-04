@@ -15,6 +15,7 @@ public:
   void close();
   std::vector<std::string> getColumnNames();
   std::vector<std::vector<std::string>> getHead(int n = -1);
+  void printHead();
 
 private:
   std::string mFilePath;

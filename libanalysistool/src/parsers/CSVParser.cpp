@@ -17,10 +17,6 @@ void CSVParser::open(std::string filepath) {
   }
   std::cout << "[+] file opened " << filepath << std::endl;
   this->mFilePath = filepath;
-
-  for (auto colName : getColumnNames())
-    std::cout << colName << ", ";
-  std::cout << std::endl;
 }
 
 void CSVParser::close() {
@@ -44,6 +40,30 @@ std::vector<std::string> CSVParser::mParseNextLine() {
 std::vector<std::string> CSVParser::getColumnNames() {
   mInpFS.seekg(mInpFS.beg);
   return mParseNextLine();
+}
+
+std::vector<std::vector<std::string>> CSVParser::getHead(int n) {
+  std::vector<std::vector<std::string>> head;
+  head.emplace_back(getColumnNames());
+  if (n == -1)
+    n = 5;
+  while (n-- && !mInpFS.eof()) {
+    head.emplace_back(mParseNextLine());
+  }
+  return head;
+}
+
+void CSVParser::printHead() {
+  auto head = getHead();
+  for (auto &row : head) {
+    if (row.size() == 0)
+      return;
+    std::cout << "| ";
+    for (auto &cell : row) {
+      std::cout << cell << " | ";
+    }
+    std::cout << std::endl;
+  }
 }
 
 } // namespace LibAnalysisTool::Parsers
